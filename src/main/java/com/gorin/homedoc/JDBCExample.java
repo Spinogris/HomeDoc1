@@ -1,8 +1,6 @@
 package com.gorin.homedoc;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class JDBCExample {
 
@@ -22,7 +20,23 @@ public class JDBCExample {
 
     public void getAllUsers() {
         String sql = "SELECT id, login, pass, stat FROM Login";
-
+        try (Connection connection = this.connect();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                System.out.print(resultSet.getString("id") + ": ");
+                System.out.println(resultSet.getString("login"));
+                System.out.println("     " + resultSet.getString("pass"));
+                System.out.println("     " + resultSet.getString("stat"));
+                System.out.println();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
+    public static void main(String[] args) {
+        JDBCExample jdbcExample = new JDBCExample();
+        jdbcExample.getAllUsers();
+    }
 }

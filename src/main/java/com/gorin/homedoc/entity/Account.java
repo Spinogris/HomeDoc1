@@ -10,7 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "Account")
+@Table(name = "Login")
 @NoArgsConstructor
 public class Account {
 
@@ -20,16 +20,20 @@ public class Account {
     private UUID id;
 
     @OneToOne
-    @Column(name = "Account_name")
+    @Column(name = "login")
     private String name;
 
     @OneToOne
-    @Column(name = "Password")
+    @Column(name = "pass")
     private String password;
 
     @OneToOne
-    @Column(name = "e-mail")
+    @Column(name = "email")
     private String eMail;
+
+    @OneToOne
+    @Column(name = "stat")
+    private String status;
 
     @Override
     public int hashCode() {
@@ -58,6 +62,8 @@ public class Account {
 
 }
 
+
 enum Pass{
+    ID, LOGIN, PASS, STAT;
 //    Тут нужно описать правило ввода пароля(латинские символы, 1 цифра, 1 знак)
 }

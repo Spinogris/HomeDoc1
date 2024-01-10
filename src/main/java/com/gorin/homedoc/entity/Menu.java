@@ -13,15 +13,18 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table
 @NoArgsConstructor
+@Table(name = "Menu")
 public class Menu {
     @Id
-    @Column(name = "id")
+    @Column(name = "package_id")
     private UUID id;
 
-    @Column(name = "packedge_name")
-    private UUID packedgeName;
+    @Column(name = "package")
+    private UUID packageName;
+
+    @Column(name = "size")
+    private UUID size;
 
 
 

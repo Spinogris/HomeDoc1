@@ -12,10 +12,11 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class TestServiceImpl implements TestSercvice {
+
     private final TestRepository testRepository;
 
     @Override
-    public Account getAccById(String id){
+    public Account getAccById(String id) {
         return testRepository.getAccountById(UUID.fromString(id));
     }
 }
