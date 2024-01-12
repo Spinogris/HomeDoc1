@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
     private final TestSercvice testSercvice;
+
     @GetMapping("/acc/{id}")
-    public Account getAccountById(@PathVariable("id") String id){
+    public Account getAccountById(@PathVariable("id") String id) {
         return testSercvice.getAccById(id);
     }
 

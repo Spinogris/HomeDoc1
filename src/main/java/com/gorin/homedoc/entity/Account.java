@@ -19,19 +19,15 @@ public class Account {
     @Column(name = "id")
     private UUID id;
 
-    @OneToOne
     @Column(name = "login")
     private String name;
 
-    @OneToOne
     @Column(name = "pass")
     private String password;
 
-    @OneToOne
     @Column(name = "email")
     private String eMail;
 
-    @OneToOne
     @Column(name = "stat")
     private String status;
 
