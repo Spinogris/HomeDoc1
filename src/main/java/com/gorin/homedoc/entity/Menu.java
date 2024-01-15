@@ -1,5 +1,4 @@
 package com.gorin.homedoc.entity;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -7,7 +6,8 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import java.util.UUID;
 
 @Getter
@@ -16,15 +16,17 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table(name = "Menu")
 public class Menu {
+
     @Id
+    @JdbcTypeCode(SqlTypes.BINARY)
     @Column(name = "package_id")
     private UUID id;
 
     @Column(name = "package")
-    private UUID packageName;
+    private String packageName;
 
     @Column(name = "size")
-    private UUID size;
+    private String size;
 
 
 

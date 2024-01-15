@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.type.SqlTypes;
 
 import java.util.UUID;
 
@@ -15,8 +18,10 @@ import java.util.UUID;
 public class Account {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @UuidGenerator
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
+    @JdbcTypeCode(SqlTypes.BINARY)
     private UUID id;
 
     @Column(name = "login")
@@ -51,15 +56,4 @@ public class Account {
         return super.toString();
     }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-    }
-
-}
-
-
-enum Pass{
-    ID, LOGIN, PASS, STAT;
-//    Тут нужно описать правило ввода пароля(латинские символы, 1 цифра, 1 знак)
 }
