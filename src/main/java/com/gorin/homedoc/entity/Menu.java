@@ -29,3 +29,42 @@ public class Menu {
 
 
 }
+class NewFolder{
+    private void newName(){
+
+    }
+}
+
+class Newfile {
+    private  void selectFile (){
+
+    }
+
+    private void scannerAccess(){
+
+    }
+}
+
+class Select {
+    private void delete(){
+
+    }
+    private void copy(){
+
+    }
+    private void passt(){
+
+    }
+    private void send(){
+
+    }
+    private void rename(){
+
+    }
+}
+
+class FileRider{
+    private void appSelect(){
+
+    }
+}
